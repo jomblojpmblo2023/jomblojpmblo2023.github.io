@@ -81,10 +81,9 @@
 
   </head>
   <body>
-    <a href="https://wa.me/1234567890" class="whatsapp-icon" onclick="openWhatsApp()">
+    <a href="#" class="whatsapp-icon" onclick="openWhatsApp()">
       <img src="logo wa.png" alt="WhatsApp Icon">
     </a>
-
 
 	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
@@ -469,12 +468,19 @@
   <script>
 
 function openWhatsApp() {
-  var phoneNumber = "6289694305801"; // Nomor telepon WhatsApp dengan kode negara (62 untuk Indonesia) dan nomor pengguna
+  var countryCode = "+62"; // Kode negara untuk Indonesia
+  var phoneNumber = "89694305801"; // Nomor telepon WhatsApp tanpa kode negara (hanya angka)
+
   var message = encodeURIComponent("Halo, Pak Deny. Saya ingin bertanya untuk layanan rental mobil Anda. Mohon direspon pesan chat saya ini. Terima kasih!");
 
-  var whatsappURL = "https://wa.me/" + phoneNumber + "?text=" + message;
-  window.open(whatsappURL);
+  var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  var isWhatsAppInstalled = isMobile ? "whatsapp://" : "https://web.whatsapp.com/";
+
+  var whatsappURL = isWhatsAppInstalled + "send?phone=" + countryCode + phoneNumber + "&text=" + message;
+  window.open(whatsappURL, "_blank");
 }
+
+
 
 
     function sendWhatsApp(event, phone) {
