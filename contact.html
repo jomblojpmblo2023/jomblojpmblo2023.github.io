@@ -32,23 +32,26 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
-	  <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11171843151"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
 
-      gtag('config', 'AW-11171843151');
-    </script>
+    <style>
+      .whatsapp-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+}
 
-	  <!-- Event snippet for https://rentalmobilpontianakrayyan.com/ conversion page -->
-<script>
-  gtag('event', 'conversion', {'send_to': 'AW-11171843151/Y8FXCOGczaAYEM-Yk88p'});
-</script>
-
+.whatsapp-icon img {
+  width: 50px;
+  height: 50px;
+}
+</style>
   </head>
   <body>
+
+    <a href="#" class="whatsapp-icon" onclick="openWhatsApp()">
+      <img src="logo wa.png" alt="WhatsApp Icon">
+    </a>
     
 	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
@@ -231,6 +234,20 @@
   <script src="js/main.js"></script>
 
   <script>
+
+function openWhatsApp() {
+  var countryCode = "+62"; // Kode negara untuk Indonesia
+  var phoneNumber = "89694305801"; // Nomor telepon WhatsApp tanpa kode negara (hanya angka)
+
+  var message = encodeURIComponent("Halo, Pak Deny. Saya ingin bertanya untuk layanan rental mobil Anda. Mohon direspon pesan chat saya ini. Terima kasih!");
+
+  var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  var isWhatsAppInstalled = isMobile ? "whatsapp://" : "https://web.whatsapp.com/";
+
+  var whatsappURL = isWhatsAppInstalled + "send?phone=" + countryCode + phoneNumber + "&text=" + message;
+  window.open(whatsappURL, "_blank");
+}
+
     function sendWhatsApp(event, phone) {
         event.preventDefault();
         var lokasiPenjemputan = document.querySelector('input[placeholder="Kota, Kabupaten, Bandara, dll"]').value;
