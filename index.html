@@ -62,27 +62,30 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7442090955692538"
      crossorigin="anonymous"></script>
 
-	  <!-- Event snippet for https://rentalmobilpontianakrayyan.com/ conversion page -->
-<script>
-  gtag('event', 'conversion', {'send_to': 'AW-11171843151/Y8FXCOGczaAYEM-Yk88p'});
-</script>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-918DDBE1RD"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-918DDBE1RD');
-</script>
     
 
+    <style>
+          .whatsapp-icon {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 9999;
+    }
 
+    .whatsapp-icon img {
+      width: 50px;
+      height: 50px;
+    }
+    </style>
 
   </head>
   <body>
-    
+    <a href="https://wa.me/1234567890" class="whatsapp-icon" onclick="openWhatsApp()">
+      <img src="logo wa.png" alt="WhatsApp Icon">
+    </a>
+
+
 	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
 	      <a class="navbar-brand" href="index.html">RENTAL<span>MOBIL | PONTIANAK<sup style="font-size: 0.5em; color: rgb(255, 255, 255);">Rayyan</sup></span></a>
@@ -461,8 +464,19 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
+  <script src="script.js"></script>
     
   <script>
+
+function openWhatsApp() {
+  var phoneNumber = "6289694305801"; // Nomor telepon WhatsApp dengan kode negara (62 untuk Indonesia) dan nomor pengguna
+  var message = encodeURIComponent("Halo, Pak Deny. Saya ingin bertanya untuk layanan taksi Anda. Mohon direspon pesan chat saya ini. Terima kasih!");
+
+  var whatsappURL = "https://wa.me/" + phoneNumber + "?text=" + message;
+  window.open(whatsappURL);
+}
+
+
     function sendWhatsApp(event, phone) {
         event.preventDefault();
         var lokasiPenjemputan = document.querySelector('input[placeholder="Kota, Kabupaten, Bandara, dll"]').value;
